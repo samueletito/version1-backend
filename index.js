@@ -68,6 +68,7 @@ app.post('/add-song', async (req, res) => {
 
     res.json({ message: 'Canción añadida a la cola' });
   } catch (error) {
+    console.error('Spotify error:', error.response?.data || error.message);
     res.status(400).json({ error: 'Error al añadir canción' });
   }
 });
